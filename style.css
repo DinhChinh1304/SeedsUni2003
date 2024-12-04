@@ -353,8 +353,4 @@ header a:hover{
 
 .slider .list .item .content .description{
     font-size: 1.5em; /* Adjust this value to make the description text larger */
-    transform: translateY(50px);
-    filter: blur(20px);
-    opacity: 0;
-    animation: showContent .5s 1.3s linear 1 forwards;
 }
