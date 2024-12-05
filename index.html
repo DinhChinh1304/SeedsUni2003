@@ -3,28 +3,27 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Image Slider</title>
+    <title>SeedsUni2003</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-    <header>
-        <!-- <nav>
-            <a href="#" class="active">Home</a>
-            <a href="#">About</a>
-            <a href="#">Portfolio</a>
-            <a href="#">Services</a>
-            <a href="#">Contact</a>
-        </nav> -->
-    </header>
-
-
+    <!-- <header></header> -->
     
     <div class="slider">
 
 
         <div class="list">
 
+            <div class="item">
+                <video id="myVideo" src="./image/vid1.mp4" loop muted autoplay></video>
+
+                <div class="content">
+                    <div class="title">2003h</div>
+                    <div class="type">love </div>
+                </div>
+            </div>
+            
             <div class="item">
                 <img src="./image/chinh.jpg" alt="">
 
@@ -87,6 +86,9 @@
         <div class="thumbnail">
 
             <div class="item">
+                <img src="./image/chinh8.jpg" alt="">
+            </div>
+            <div class="item">
                 <img src="./image/chinh.jpg" alt="">
             </div>
             <div class="item">
@@ -98,6 +100,8 @@
             <div class="item">
                 <img src="./image/chinh3.jpg" alt="">
             </div>
+            
+            
 
         </div>
 
@@ -109,11 +113,33 @@
 
 
     </div>
+    <script>
+        window.onload = function() {
+            var video = document.getElementById("myVideo");
 
+            // Đảm bảo video tự động phát nhưng bị tắt âm thanh ban đầu
+            video.autoplay = true;
+            video.muted = true;
 
+            // Lắng nghe các sự kiện tương tác của người dùng
+            function enableAudio() {
+                // Mở âm thanh và bắt đầu phát video
+                video.muted = false;
+                video.play().catch(function(error) {
+                    console.log('Không thể phát video:', error);
+                });
+            }
 
+            // Lắng nghe sự kiện click ở bất kỳ đâu trên trang
+            document.body.addEventListener('click', enableAudio);
+            // Có thể thêm sự kiện scroll hoặc mousemove nếu muốn
 
-
+            // Ngoài ra, bạn cũng có thể lắng nghe các sự kiện như scroll hoặc di chuyển chuột
+            document.body.addEventListener('scroll', enableAudio);
+            document.body.addEventListener('mousemove', enableAudio);
+        };
+    </script>
     <script src="app.js"></script>
+    
 </body>
 </html>

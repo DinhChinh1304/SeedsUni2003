@@ -43,3 +43,24 @@ function moveSlider(direction) {
         }
     }, {once: true}) // Remove the event listener after it's triggered once
 }
+
+function moveSlider(direction) {
+    let sliderItems = sliderList.querySelectorAll('.item');
+    let thumbnailItems = document.querySelectorAll('.thumbnail .item');
+    let newItem = direction === 'next' ? sliderItems[0] : sliderItems[sliderItems.length - 1];
+    let newThumbnailItem = direction === 'next' ? thumbnailItems[0] : thumbnailItems[thumbnailItems.length - 1];
+    
+    if (direction === 'next') {
+        sliderList.appendChild(newItem);
+        thumbnail.appendChild(newThumbnailItem);
+    } else {
+        sliderList.prepend(newItem);
+        thumbnail.prepend(newThumbnailItem);
+    }
+
+    // Handle class changes for animation
+    slider.classList.add(direction);
+    slider.addEventListener('animationend', function () {
+        slider.classList.remove(direction);
+    }, { once: true });
+}
